@@ -1,11 +1,10 @@
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
 
-	Players playerList = new Players(this);
+	Players players = new Players(this);
 
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -27,28 +26,28 @@ public class Game {
 	public void add(String playerName) {
 		
 		
-	    playerList.add(playerName);
+	    players.add(playerName);
 
 	    log(playerName + " was added");
 	    log("They are player number " + howManyPlayers());
 	}
 
 	public int howManyPlayers() {
-		return playerList.size();
+		return players.size();
 	}
 
 	public void roll(int roll) {
-		log(playerList.getCurrentPlayer() + " is the current player");
+		log(players.getCurrentPlayer() + " is the current player");
 		log("They have rolled a " + roll);
 
-		if (playerList.isCurrentPlayerInPenaltyBox()) {
+		if (players.isCurrentPlayerInPenaltyBox()) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
-				log(playerList.getCurrentPlayer() + " is getting out of the penalty box");
+				log(players.getCurrentPlayer() + " is getting out of the penalty box");
 				movePlayerAndAskQuestion(roll);
 			} else {
-				log(playerList.getCurrentPlayer() + " is not getting out of the penalty box");
+				log(players.getCurrentPlayer() + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
 			}
 
@@ -60,11 +59,11 @@ public class Game {
 	}
 
 	private void movePlayerAndAskQuestion(int roll) {
-		playerList.currentPlayerRoll(roll);
+		players.currentPlayerRoll(roll);
 
-		log(playerList.getCurrentPlayer()
+		log(players.getCurrentPlayer()
 			+ "'s new location is "
-			+ playerList.currentPlayerPlace());
+			+ players.currentPlayerPlace());
 		log("The category is " + currentCategory());
 		askQuestion();
 	}
@@ -82,34 +81,34 @@ public class Game {
 
 
 	private String currentCategory() {
-		if (playerList.currentPlayerPlace() == 0) return "Pop";
-		if (playerList.currentPlayerPlace() == 4) return "Pop";
-		if (playerList.currentPlayerPlace() == 8) return "Pop";
-		if (playerList.currentPlayerPlace() == 1) return "Science";
-		if (playerList.currentPlayerPlace() == 5) return "Science";
-		if (playerList.currentPlayerPlace() == 9) return "Science";
-		if (playerList.currentPlayerPlace() == 2) return "Sports";
-		if (playerList.currentPlayerPlace() == 6) return "Sports";
-		if (playerList.currentPlayerPlace() == 10) return "Sports";
+		if (players.currentPlayerPlace() == 0) return "Pop";
+		if (players.currentPlayerPlace() == 4) return "Pop";
+		if (players.currentPlayerPlace() == 8) return "Pop";
+		if (players.currentPlayerPlace() == 1) return "Science";
+		if (players.currentPlayerPlace() == 5) return "Science";
+		if (players.currentPlayerPlace() == 9) return "Science";
+		if (players.currentPlayerPlace() == 2) return "Sports";
+		if (players.currentPlayerPlace() == 6) return "Sports";
+		if (players.currentPlayerPlace() == 10) return "Sports";
 		return "Rock";
 	}
 
 	public boolean wasCorrectlyAnswered() {
-		if (playerList.isCurrentPlayerInPenaltyBox()) {
+		if (players.isCurrentPlayerInPenaltyBox()) {
 			if (isGettingOutOfPenaltyBox) {
 				log("Answer was correct!!!!");
-				playerList.nextCurrentPlayer();
-				playerList.currentPlayerWinsACoin();
-				System.out.println(playerList.getCurrentPlayer()
+				players.nextCurrentPlayer();
+				players.currentPlayerWinsACoin();
+				System.out.println(players.getCurrentPlayer()
 					+ " now has "
-					+ playerList.currentPlayerCoins()
+					+ players.currentPlayerCoins()
 					+ " Gold Coins.");
 
 				boolean winner = didPlayerWin();
 
 				return winner;
 			} else {
-				playerList.nextCurrentPlayer();
+				players.nextCurrentPlayer();
 				return true;
 			}
 
@@ -117,14 +116,14 @@ public class Game {
 		} else {
 
 			log("Answer was corrent!!!!");
-			playerList.currentPlayerWinsACoin();
-			System.out.println(playerList.getCurrentPlayer()
+			players.currentPlayerWinsACoin();
+			System.out.println(players.getCurrentPlayer()
 				+ " now has "
-				+ playerList.currentPlayerCoins()
+				+ players.currentPlayerCoins()
 				+ " Gold Coins.");
 
 			boolean winner = didPlayerWin();
-			playerList.nextCurrentPlayer();
+			players.nextCurrentPlayer();
 
 			return winner;
 		}
@@ -132,16 +131,16 @@ public class Game {
 
 	public boolean wrongAnswer() {
 		log("Question was incorrectly answered");
-		log(playerList.getCurrentPlayer() + " was sent to the penalty box");
-		playerList.currentPlayerToPenaltyBox();
+		log(players.getCurrentPlayer() + " was sent to the penalty box");
+		players.currentPlayerToPenaltyBox();
 
-		playerList.nextCurrentPlayer();
+		players.nextCurrentPlayer();
 		return true;
 	}
 
 
 	private boolean didPlayerWin() {
-		return !(playerList.currentPlayerCoins() == 6);
+		return !(players.currentPlayerCoins() == 6);
 	}
 
 	public void setVerbosity(String value) {

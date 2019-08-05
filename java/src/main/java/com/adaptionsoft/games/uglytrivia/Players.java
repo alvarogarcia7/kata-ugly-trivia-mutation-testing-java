@@ -17,28 +17,28 @@ public class Players {
 	}
 
 	int currentPlayerCoins() {
-		return purses[game.playerList.getCurrentPlayerAsInt()];
+		return purses[game.players.getCurrentPlayerAsInt()];
 	}
 
 	int currentPlayerWinsACoin() {
-		return purses[game.playerList.getCurrentPlayerAsInt()]++;
+		return purses[game.players.getCurrentPlayerAsInt()]++;
 	}
 
 	int currentPlayerPlace() {
-		return places[game.playerList.getCurrentPlayerAsInt()];
+		return places[game.players.getCurrentPlayerAsInt()];
 	}
 
 	void currentPlayerRoll(int roll) {
-		places[game.playerList.getCurrentPlayerAsInt()] = currentPlayerPlace() + roll;
-		if (currentPlayerPlace() > 11) places[game.playerList.getCurrentPlayerAsInt()] = currentPlayerPlace() - 12;
+		places[game.players.getCurrentPlayerAsInt()] = currentPlayerPlace() + roll;
+		if (currentPlayerPlace() > 11) places[game.players.getCurrentPlayerAsInt()] = currentPlayerPlace() - 12;
 	}
 
 	void currentPlayerToPenaltyBox() {
-		inPenaltyBox[game.playerList.getCurrentPlayerAsInt()] = true;
+		inPenaltyBox[game.players.getCurrentPlayerAsInt()] = true;
 	}
 
 	boolean isCurrentPlayerInPenaltyBox() {
-		return inPenaltyBox[game.playerList.getCurrentPlayerAsInt()];
+		return inPenaltyBox[game.players.getCurrentPlayerAsInt()];
 	}
 
 	void nextCurrentPlayer() {

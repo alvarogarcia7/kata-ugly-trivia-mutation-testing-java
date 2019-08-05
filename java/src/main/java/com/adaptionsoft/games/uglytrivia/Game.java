@@ -6,7 +6,6 @@ import java.util.LinkedList;
 public class Game {
 
 	Players playerList = new Players(this);
-    ArrayList<String> players = new ArrayList();
 
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -28,14 +27,14 @@ public class Game {
 	public void add(String playerName) {
 		
 		
-	    players.add(playerName);
+	    playerList.add(playerName);
 
 	    log(playerName + " was added");
 	    log("They are player number " + howManyPlayers());
 	}
 
 	public int howManyPlayers() {
-		return players.size();
+		return playerList.size();
 	}
 
 	public void roll(int roll) {

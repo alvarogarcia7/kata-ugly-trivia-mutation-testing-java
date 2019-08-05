@@ -1,12 +1,15 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Players {
 	private Game game;
 	private int[] purses = new int[6];
 	private int[] places = new int[6];
 	private boolean[] inPenaltyBox = new boolean[6];
 	private int currentPlayer = 0;
-
+	private List<Player> players = new ArrayList<>();
 
 
 	public Players(Game game) {
@@ -40,7 +43,7 @@ public class Players {
 
 	void nextCurrentPlayer() {
 		currentPlayer++;
-		if (currentPlayer == game.players.size()) currentPlayer = 0;
+		if (currentPlayer == players.size()) currentPlayer = 0;
 	}
 
 	public int getCurrentPlayerAsInt() {
@@ -48,6 +51,14 @@ public class Players {
 	}
 
 	public String getCurrentPlayer() {
-		return game.players.get(currentPlayer);
+		return players.get(currentPlayer).name;
+	}
+
+	public void add(String playerName) {
+		this.players.add(new Player(playerName));
+	}
+
+	public int size() {
+		return this.players.size();
 	}
 }

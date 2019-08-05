@@ -33,4 +33,28 @@ public class Questions {
 		return rockQuestions.pop();
 	}
 
+	String currentCategory(int currentPlayerPlace) {
+		if (currentPlayerPlace == 0) return "Pop";
+		if (currentPlayerPlace == 4) return "Pop";
+		if (currentPlayerPlace == 8) return "Pop";
+		if (currentPlayerPlace == 1) return "Science";
+		if (currentPlayerPlace == 5) return "Science";
+		if (currentPlayerPlace == 9) return "Science";
+		if (currentPlayerPlace == 2) return "Sports";
+		if (currentPlayerPlace == 6) return "Sports";
+		if (currentPlayerPlace == 10) return "Sports";
+		return "Rock";
+	}
+
+	String askQuestion(int currentPlayerPlace, Game game) {
+		if (currentCategory(currentPlayerPlace) == "Pop")
+			return getPopQuestion();
+		if (currentCategory(currentPlayerPlace) == "Science")
+			return getScienceQuestion();
+		if (currentCategory(currentPlayerPlace) == "Sports")
+			return getSportsQuestion();
+		if (currentCategory(currentPlayerPlace) == "Rock")
+			return getRockQuestion();
+		throw new IllegalArgumentException();
+	}
 }

@@ -1,7 +1,5 @@
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.LinkedList;
-
 public class Game {
 
 	Players players = new Players();
@@ -56,34 +54,10 @@ public class Game {
 		log(players.getCurrentPlayer()
 			+ "'s new location is "
 			+ players.currentPlayerPlace());
-		log("The category is " + currentCategory());
-		askQuestion();
+		log("The category is " + questions.currentCategory(players.currentPlayerPlace()));
+		log(questions.askQuestion(players.currentPlayerPlace(), this));
 	}
 
-	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			log(questions.getPopQuestion());
-		if (currentCategory() == "Science")
-			log(questions.getScienceQuestion());
-		if (currentCategory() == "Sports")
-			log(questions.getSportsQuestion());
-		if (currentCategory() == "Rock")
-			log(questions.getRockQuestion());
-	}
-
-
-	private String currentCategory() {
-		if (players.currentPlayerPlace() == 0) return "Pop";
-		if (players.currentPlayerPlace() == 4) return "Pop";
-		if (players.currentPlayerPlace() == 8) return "Pop";
-		if (players.currentPlayerPlace() == 1) return "Science";
-		if (players.currentPlayerPlace() == 5) return "Science";
-		if (players.currentPlayerPlace() == 9) return "Science";
-		if (players.currentPlayerPlace() == 2) return "Sports";
-		if (players.currentPlayerPlace() == 6) return "Sports";
-		if (players.currentPlayerPlace() == 10) return "Sports";
-		return "Rock";
-	}
 
 	public boolean wasCorrectlyAnswered() {
 		if (players.isCurrentPlayerInPenaltyBox()) {

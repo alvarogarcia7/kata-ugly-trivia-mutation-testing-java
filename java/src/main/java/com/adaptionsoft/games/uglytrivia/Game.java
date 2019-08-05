@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Game {
 
-	Players players = new Players(this);
+	Players players = new Players();
 
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();

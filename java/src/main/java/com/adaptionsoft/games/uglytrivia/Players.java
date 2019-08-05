@@ -4,16 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Players {
-	private Game game;
 	private int currentPlayer = 0;
 	private List<Player> players = new ArrayList<>();
 
-
-	public Players(Game game) {
-		this.game = game;
-	}
-
-	private Player currentPlayer(){
+	private Player currentPlayer() {
 		return this.players.get(currentPlayer);
 	}
 
@@ -44,10 +38,6 @@ public class Players {
 	void nextCurrentPlayer() {
 		currentPlayer++;
 		if (currentPlayer == players.size()) currentPlayer = 0;
-	}
-
-	public int getCurrentPlayerAsInt() {
-		return currentPlayer;
 	}
 
 	public String getCurrentPlayer() {

@@ -6,21 +6,13 @@ public class Game {
 
 	Players players = new Players();
 
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+	Questions questions = new Questions();
     
     boolean isGettingOutOfPenaltyBox;
 	private String verbosity;
 
 	public  Game(){
-    	for (int i = 0; i < 50; i++) {
-			popQuestions.addLast("Pop Question " + i);
-			scienceQuestions.addLast(("Science Question " + i));
-			sportsQuestions.addLast(("Sports Question " + i));
-		    rockQuestions.addLast("Rock Question " + i);
-		}
+
 	}
 
 	public void add(String playerName) {
@@ -70,13 +62,13 @@ public class Game {
 
 	private void askQuestion() {
 		if (currentCategory() == "Pop")
-			log(popQuestions.removeFirst());
+			log(questions.getPopQuestion());
 		if (currentCategory() == "Science")
-			log(scienceQuestions.removeFirst());
+			log(questions.getScienceQuestion());
 		if (currentCategory() == "Sports")
-			log(sportsQuestions.removeFirst());
+			log(questions.getSportsQuestion());
 		if (currentCategory() == "Rock")
-			log(rockQuestions.removeFirst());
+			log(questions.getRockQuestion());
 	}
 
 

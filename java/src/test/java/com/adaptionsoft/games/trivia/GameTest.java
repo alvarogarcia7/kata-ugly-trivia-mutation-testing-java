@@ -6,7 +6,6 @@ import org.approvaltests.Approvals;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -92,39 +91,40 @@ public class GameTest {
 	}
 
 	@Test
-	public void exhaust_questions() throws Exception {
+	public void exhaust_all_questions() throws Exception {
 
 		ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(resultStream));
-		NoSuchElementException exception = null;
+
+		Game aGame = new Game();
+		aGame.setVerbosity("");
+
+		aGame.add("Chet");
+		aGame.add("Pat");
+		aGame.add("Sue");
+
+		int i = 50;
+		int steps = 0;
+		do {
+			aGame.roll(0);
+			aGame.wasCorrectlyAnswered();
+			steps++;
+			System.out.println(String.format("steps = %d is correct", steps));
+			i--;
+		} while (i > 0);
+
+		Exception exception = null;
 		try {
-
-			IntStream.range(1, 10).forEach(i -> {
-				Random rand = new Random(i);
-				Game aGame = new Game();
-				aGame.setVerbosity("");
-
-				aGame.add("Chet");
-				aGame.add("Pat");
-				aGame.add("Sue");
-
-
-				int steps = 1000;
-				do {
-
-					aGame.roll(rand.nextInt(5) + 1);
-
-					aGame.wrongAnswer();
-
-					steps--;
-				} while (steps > 0);
-			});
-		} catch (NoSuchElementException e) {
+			aGame.roll(0);
+		} catch (Exception e) {
 			exception = e;
 		} finally {
 			if (null == exception) {
-				fail("should have thrown an exception");
+				fail("Should have thrown an exception here ");
 			}
 		}
+
+		Approvals.verify(resultStream.toString());
+
 	}
 }

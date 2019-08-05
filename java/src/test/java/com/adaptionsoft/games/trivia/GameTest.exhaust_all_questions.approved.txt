@@ -1,0 +1,100 @@
+Chet now has 1 Gold Coins.
+steps = 1 is correct
+Pat now has 1 Gold Coins.
+steps = 2 is correct
+Sue now has 1 Gold Coins.
+steps = 3 is correct
+Chet now has 2 Gold Coins.
+steps = 4 is correct
+Pat now has 2 Gold Coins.
+steps = 5 is correct
+Sue now has 2 Gold Coins.
+steps = 6 is correct
+Chet now has 3 Gold Coins.
+steps = 7 is correct
+Pat now has 3 Gold Coins.
+steps = 8 is correct
+Sue now has 3 Gold Coins.
+steps = 9 is correct
+Chet now has 4 Gold Coins.
+steps = 10 is correct
+Pat now has 4 Gold Coins.
+steps = 11 is correct
+Sue now has 4 Gold Coins.
+steps = 12 is correct
+Chet now has 5 Gold Coins.
+steps = 13 is correct
+Pat now has 5 Gold Coins.
+steps = 14 is correct
+Sue now has 5 Gold Coins.
+steps = 15 is correct
+Chet now has 6 Gold Coins.
+steps = 16 is correct
+Pat now has 6 Gold Coins.
+steps = 17 is correct
+Sue now has 6 Gold Coins.
+steps = 18 is correct
+Chet now has 7 Gold Coins.
+steps = 19 is correct
+Pat now has 7 Gold Coins.
+steps = 20 is correct
+Sue now has 7 Gold Coins.
+steps = 21 is correct
+Chet now has 8 Gold Coins.
+steps = 22 is correct
+Pat now has 8 Gold Coins.
+steps = 23 is correct
+Sue now has 8 Gold Coins.
+steps = 24 is correct
+Chet now has 9 Gold Coins.
+steps = 25 is correct
+Pat now has 9 Gold Coins.
+steps = 26 is correct
+Sue now has 9 Gold Coins.
+steps = 27 is correct
+Chet now has 10 Gold Coins.
+steps = 28 is correct
+Pat now has 10 Gold Coins.
+steps = 29 is correct
+Sue now has 10 Gold Coins.
+steps = 30 is correct
+Chet now has 11 Gold Coins.
+steps = 31 is correct
+Pat now has 11 Gold Coins.
+steps = 32 is correct
+Sue now has 11 Gold Coins.
+steps = 33 is correct
+Chet now has 12 Gold Coins.
+steps = 34 is correct
+Pat now has 12 Gold Coins.
+steps = 35 is correct
+Sue now has 12 Gold Coins.
+steps = 36 is correct
+Chet now has 13 Gold Coins.
+steps = 37 is correct
+Pat now has 13 Gold Coins.
+steps = 38 is correct
+Sue now has 13 Gold Coins.
+steps = 39 is correct
+Chet now has 14 Gold Coins.
+steps = 40 is correct
+Pat now has 14 Gold Coins.
+steps = 41 is correct
+Sue now has 14 Gold Coins.
+steps = 42 is correct
+Chet now has 15 Gold Coins.
+steps = 43 is correct
+Pat now has 15 Gold Coins.
+steps = 44 is correct
+Sue now has 15 Gold Coins.
+steps = 45 is correct
+Chet now has 16 Gold Coins.
+steps = 46 is correct
+Pat now has 16 Gold Coins.
+steps = 47 is correct
+Sue now has 16 Gold Coins.
+steps = 48 is correct
+Chet now has 17 Gold Coins.
+steps = 49 is correct
+Pat now has 17 Gold Coins.
+steps = 50 is correct

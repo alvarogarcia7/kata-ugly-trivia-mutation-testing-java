@@ -24,4 +24,29 @@ public class GameTest {
         Approvals.verify(resultStream.toString());
 
 	}
+
+	@Test
+	public void itsLockedDown_longerTest() throws Exception {
+
+		Random randomizer = new Random(123455);
+		ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(resultStream));
+
+		IntStream.range(1,1000).forEach(i -> GameRunner.playGame(randomizer));
+
+		Approvals.verify(resultStream.toString());
+
+	}
+
+	@Test
+	public void itsLockedDown_broaderTest() throws Exception {
+
+		ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(resultStream));
+
+		IntStream.range(1,1000).forEach(i -> GameRunner.playGame(new Random(i)));
+
+		Approvals.verify(resultStream.toString());
+
+	}
 }

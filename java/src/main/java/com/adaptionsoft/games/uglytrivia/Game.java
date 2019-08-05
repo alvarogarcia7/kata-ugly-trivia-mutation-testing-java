@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
+
+	private Players playerList = new Players(this);
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -23,12 +25,8 @@ public class Game {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
 			sportsQuestions.addLast(("Sports Question " + i));
-			rockQuestions.addLast(createRockQuestion(i));
+		    rockQuestions.addLast("Rock Question " + i);
 		}
-	}
-
-	public String createRockQuestion(int index) {
-		return "Rock Question " + index;
 	}
 
 	public void add(String playerName) {
@@ -36,7 +34,6 @@ public class Game {
 		
 	    players.add(playerName);
 	    places[howManyPlayers()] = 0;
-	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    log(playerName + " was added");
@@ -111,10 +108,10 @@ public class Game {
 				log("Answer was correct!!!!");
 				currentPlayer++;
 				if (currentPlayer == players.size()) currentPlayer = 0;
-				purses[currentPlayer]++;
+				playerList.currentPlayerWinsACoin();
 				System.out.println(players.get(currentPlayer)
 					+ " now has "
-					+ purses[currentPlayer]
+					+ playerList.currentPlayerCoins()
 					+ " Gold Coins.");
 
 				boolean winner = didPlayerWin();
@@ -130,10 +127,10 @@ public class Game {
 		} else {
 
 			log("Answer was corrent!!!!");
-			purses[currentPlayer]++;
+			playerList.currentPlayerWinsACoin();
 			System.out.println(players.get(currentPlayer)
 				+ " now has "
-				+ purses[currentPlayer]
+				+ playerList.currentPlayerCoins()
 				+ " Gold Coins.");
 
 			boolean winner = didPlayerWin();
@@ -156,7 +153,7 @@ public class Game {
 
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
+		return !(playerList.currentPlayerCoins() == 6);
 	}
 
 	public void setVerbosity(String value) {

@@ -21,7 +21,6 @@
         </dependency>
 
 
-
     </dependencies>
 
     <build>
@@ -42,6 +41,20 @@
                     <source>1.8</source>
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <reportsDirectory>${project.basedir}/pitest/</reportsDirectory>
+                    <targetClasses>
+                        <param>com.adaptionsoft.games.uglytrivia.Game</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.adaptionsoft.games.trivia.GameTest</param>
+                    </targetTests>
                 </configuration>
             </plugin>
         </plugins>

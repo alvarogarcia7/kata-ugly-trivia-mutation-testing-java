@@ -5,9 +5,6 @@ import java.util.List;
 
 public class Players {
 	private Game game;
-	private int[] purses = new int[6];
-	private int[] places = new int[6];
-	private boolean[] inPenaltyBox = new boolean[6];
 	private int currentPlayer = 0;
 	private List<Player> players = new ArrayList<>();
 
@@ -16,29 +13,32 @@ public class Players {
 		this.game = game;
 	}
 
+	private Player currentPlayer(){
+		return this.players.get(currentPlayer);
+	}
+
 	int currentPlayerCoins() {
-		return purses[game.players.getCurrentPlayerAsInt()];
+		return currentPlayer().getCoins();
 	}
 
 	int currentPlayerWinsACoin() {
-		return purses[game.players.getCurrentPlayerAsInt()]++;
+		return currentPlayer().winCoin();
 	}
 
 	int currentPlayerPlace() {
-		return places[game.players.getCurrentPlayerAsInt()];
+		return currentPlayer().getPlace();
 	}
 
 	void currentPlayerRoll(int roll) {
-		places[game.players.getCurrentPlayerAsInt()] = currentPlayerPlace() + roll;
-		if (currentPlayerPlace() > 11) places[game.players.getCurrentPlayerAsInt()] = currentPlayerPlace() - 12;
+		currentPlayer().roll(roll);
 	}
 
 	void currentPlayerToPenaltyBox() {
-		inPenaltyBox[game.players.getCurrentPlayerAsInt()] = true;
+		currentPlayer().toPenaltyBox();
 	}
 
 	boolean isCurrentPlayerInPenaltyBox() {
-		return inPenaltyBox[game.players.getCurrentPlayerAsInt()];
+		return currentPlayer().isInPenaltyBox();
 	}
 
 	void nextCurrentPlayer() {

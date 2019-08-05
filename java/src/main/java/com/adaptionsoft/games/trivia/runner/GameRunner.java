@@ -11,12 +11,12 @@ public class GameRunner {
 
 	public static void main(String[] args) {
 		Random rand = new Random();
-		playGame(rand);
-		
+		playGame(rand, "debug");
 	}
 
-	public static void playGame(Random rand) {
+	public static void playGame(Random rand, String verbosity) {
 		Game aGame = new Game();
+		aGame.setVerbosity(verbosity);
 
 		aGame.add("Chet");
 		aGame.add("Pat");

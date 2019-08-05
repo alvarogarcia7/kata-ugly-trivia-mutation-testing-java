@@ -50,10 +50,10 @@
                 <configuration>
                     <reportsDirectory>${project.basedir}/pitest/</reportsDirectory>
                     <targetClasses>
-                        <param>com.adaptionsoft.games.uglytrivia.Game</param>
+                        <param>com.adaptionsoft.games.uglytrivia.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>com.adaptionsoft.games.trivia.GameTest</param>
+                        <param>com.adaptionsoft.games.trivia.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

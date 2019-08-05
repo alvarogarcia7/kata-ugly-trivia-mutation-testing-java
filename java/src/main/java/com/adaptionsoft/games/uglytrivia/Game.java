@@ -31,7 +31,7 @@ public class Game {
 		return "Rock Question " + index;
 	}
 
-	public boolean add(String playerName) {
+	public void add(String playerName) {
 		
 		
 	    players.add(playerName);
@@ -41,7 +41,6 @@ public class Game {
 	    
 	    log(playerName + " was added");
 	    log("They are player number " + players.size());
-		return true;
 	}
 
 	public int howManyPlayers() {

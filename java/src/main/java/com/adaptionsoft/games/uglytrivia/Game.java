@@ -2,15 +2,16 @@ package com.adaptionsoft.games.uglytrivia;
 
 public class Game {
 
-	Players players = new Players();
+	Players players;
 
-	Questions questions = new Questions();
+	Questions questions;
     
     boolean isGettingOutOfPenaltyBox;
 	private String verbosity;
 
-	public  Game(){
-
+	public  Game(Questions questions, Players players){
+		this.questions = questions;
+		this.players = players;
 	}
 
 	public void add(String playerName) {

@@ -2,6 +2,8 @@ package com.adaptionsoft.games.trivia;
 
 import com.adaptionsoft.games.trivia.runner.GameRunner;
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.Players;
+import com.adaptionsoft.games.uglytrivia.Questions;
 import org.approvaltests.Approvals;
 import org.junit.Test;
 
@@ -96,7 +98,7 @@ public class GameTest {
 		ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(resultStream));
 
-		Game aGame = new Game();
+		Game aGame = new Game(new Questions(), new Players());
 		aGame.setVerbosity("");
 
 		aGame.add("Chet");

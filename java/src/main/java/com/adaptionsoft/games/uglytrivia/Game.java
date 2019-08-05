@@ -40,7 +40,7 @@ public class Game {
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    log(playerName + " was added");
-	    log("They are player number " + players.size());
+	    log("They are player number " + howManyPlayers());
 	}
 
 	public int howManyPlayers() {

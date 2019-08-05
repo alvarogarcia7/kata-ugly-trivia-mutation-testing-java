@@ -5,26 +5,25 @@ public class Game {
 	Players players;
 
 	Questions questions;
-    
-    boolean isGettingOutOfPenaltyBox;
-	private String verbosity;
 
-	public  Game(Questions questions, Players players){
+	boolean isGettingOutOfPenaltyBox;
+	private final String verbosity;
+
+	public Game(Questions questions, Players players, String verbosity) {
 		this.questions = questions;
 		this.players = players;
+		this.verbosity = verbosity;
+		this.logPlayers(this.players);
 	}
 
-	public void add(String playerName) {
-		
-		
-	    players.add(playerName);
+	private void logPlayers(Players players) {
+		Integer[] counter = new Integer[]{0};
 
-	    log(playerName + " was added");
-	    log("They are player number " + howManyPlayers());
-	}
-
-	public int howManyPlayers() {
-		return players.size();
+		players.forEach(player -> {
+			this.log(player.name + " was added");
+			counter[0]++;
+			this.log("They are player number " + counter[0]);
+		});
 	}
 
 	public void roll(int roll) {
@@ -108,10 +107,6 @@ public class Game {
 
 	private boolean didPlayerWin() {
 		return !(players.currentPlayerCoins() == 6);
-	}
-
-	public void setVerbosity(String value) {
-		this.verbosity = value;
 	}
 
 	private void log(Object line) {

@@ -98,12 +98,7 @@ public class GameTest {
 		ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(resultStream));
 
-		Game aGame = new Game(new Questions(), new Players());
-		aGame.setVerbosity("");
-
-		aGame.add("Chet");
-		aGame.add("Pat");
-		aGame.add("Sue");
+		Game aGame = new Game(new Questions(), new Players("Chet", "Pat", "Sue"), "");
 
 		int i = 50;
 		int steps = 0;
@@ -129,4 +124,5 @@ public class GameTest {
 		Approvals.verify(resultStream.toString());
 
 	}
+
 }

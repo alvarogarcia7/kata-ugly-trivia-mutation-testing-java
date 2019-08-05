@@ -17,13 +17,7 @@ public class GameRunner {
 	}
 
 	public static void playGame(Random rand, String verbosity) {
-		Game aGame = new Game(new Questions(), new Players());
-		aGame.setVerbosity(verbosity);
-
-		aGame.add("Chet");
-		aGame.add("Pat");
-		aGame.add("Sue");
-
+		Game aGame = new Game(new Questions(), new Players("Chet", "Pat", "Sue"), verbosity);
 
 		do {
 

@@ -7,7 +7,6 @@ public class Game {
 
 	private Players playerList = new Players(this);
     ArrayList players = new ArrayList();
-    int[] places = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
     LinkedList popQuestions = new LinkedList();
@@ -32,7 +31,6 @@ public class Game {
 		
 		
 	    players.add(playerName);
-	    places[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    log(playerName + " was added");
@@ -66,12 +64,11 @@ public class Game {
 	}
 
 	private void movePlayerAndAskQuestion(int roll) {
-		places[currentPlayer] = places[currentPlayer] + roll;
-		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+		playerList.currentPlayerRoll(roll);
 
 		log(players.get(currentPlayer)
 			+ "'s new location is "
-			+ places[currentPlayer]);
+			+ playerList.currentPlayerPlace());
 		log("The category is " + currentCategory());
 		askQuestion();
 	}
@@ -86,18 +83,18 @@ public class Game {
 		if (currentCategory() == "Rock")
 			log(rockQuestions.removeFirst());
 	}
-	
-	
+
+
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
+		if (playerList.currentPlayerPlace() == 0) return "Pop";
+		if (playerList.currentPlayerPlace() == 4) return "Pop";
+		if (playerList.currentPlayerPlace() == 8) return "Pop";
+		if (playerList.currentPlayerPlace() == 1) return "Science";
+		if (playerList.currentPlayerPlace() == 5) return "Science";
+		if (playerList.currentPlayerPlace() == 9) return "Science";
+		if (playerList.currentPlayerPlace() == 2) return "Sports";
+		if (playerList.currentPlayerPlace() == 6) return "Sports";
+		if (playerList.currentPlayerPlace() == 10) return "Sports";
 		return "Rock";
 	}
 
@@ -164,4 +161,5 @@ public class Game {
 			System.out.println(line);
 		}
 	}
+
 }

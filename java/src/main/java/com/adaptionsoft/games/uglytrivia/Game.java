@@ -2,8 +2,10 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
+	List<Player> playerList = new ArrayList<>();
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];

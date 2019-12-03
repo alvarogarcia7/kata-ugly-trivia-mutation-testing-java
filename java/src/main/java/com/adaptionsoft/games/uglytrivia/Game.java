@@ -39,18 +39,17 @@ public class Game {
 	public boolean add(String playerName) {
 
 		this.playerList.add(new Player(playerName));
-		getPlayers().add(playerName);
 		places[howManyPlayers()] = 0;
 		purses[howManyPlayers()] = 0;
 		inPenaltyBox[howManyPlayers()] = false;
 
 		System.out.println(playerName + " was added");
-		System.out.println("They are player number " + getPlayers().size());
+		System.out.println("They are player number " + howManyPlayers());
 		return true;
 	}
 
 	public int howManyPlayers() {
-		return getPlayers().size();
+		return this.playerList.size();
 	}
 
 	public void roll(int roll) {
@@ -76,7 +75,8 @@ public class Game {
 	}
 
 	private Object getCurrentPlayer() {
-		return this.playerList.get(currentPlayer).getName();
+		String newPlayerName = this.playerList.get(currentPlayer).getName();
+		return newPlayerName;
 	}
 
 	private void movePlayerAndAskQuestion(int roll) {
@@ -120,7 +120,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
 				currentPlayer++;
-				if (currentPlayer == getPlayers().size()) currentPlayer = 0;
+				if (currentPlayer == howManyPlayers()) currentPlayer = 0;
 				purses[currentPlayer]++;
 				System.out.println(getCurrentPlayer()
 					+ " now has "
@@ -132,7 +132,7 @@ public class Game {
 				return winner;
 			} else {
 				currentPlayer++;
-				if (currentPlayer == getPlayers().size()) currentPlayer = 0;
+				if (currentPlayer == howManyPlayers()) currentPlayer = 0;
 				return true;
 			}
 
@@ -148,7 +148,7 @@ public class Game {
 
 			boolean winner = didPlayerWin();
 			currentPlayer++;
-			if (currentPlayer == getPlayers().size()) currentPlayer = 0;
+			if (currentPlayer == howManyPlayers()) currentPlayer = 0;
 
 			return winner;
 		}
@@ -160,7 +160,7 @@ public class Game {
 		inPenaltyBox[currentPlayer] = true;
 
 		currentPlayer++;
-		if (currentPlayer == getPlayers().size()) currentPlayer = 0;
+		if (currentPlayer == howManyPlayers()) currentPlayer = 0;
 		return true;
 	}
 
